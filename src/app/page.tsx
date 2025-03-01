@@ -66,13 +66,14 @@ export default function Home() {
     setActivities(activities.filter((_, i) => i !== index));
   };
 
-  //
+  //Update slider state
   const handleSliderChange = () => {
     if (sliderRef.current) {
       setSlider(Number(sliderRef.current.value));
     }
   };
 
+  // Calculate only when activities change instead of each render.
   const activityCount = useMemo(() => activities.length, [activities]);
 
   return (
